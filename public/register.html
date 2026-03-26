@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LUMINARY — Register</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body class="auth-page">
+
+<div class="auth-split">
+  <!-- LEFT PANEL -->
+  <div class="auth-visual">
+    <div class="auth-visual-inner">
+      <div class="av-brand">
+        <span class="brand-icon">✦</span>
+        <span class="brand-name">LUMINARY</span>
+      </div>
+      <h2 class="av-tagline">Join thousands of<br/><em>satisfied</em><br/>shoppers.</h2>
+      <div class="av-perks">
+        <div class="perk"><i class="fa fa-shield-halved"></i> Secure Checkout</div>
+        <div class="perk"><i class="fa fa-truck-fast"></i> Free Shipping ₹999+</div>
+        <div class="perk"><i class="fa fa-rotate-left"></i> Easy Returns</div>
+        <div class="perk"><i class="fa fa-headset"></i> 24/7 Support</div>
+      </div>
+      <div class="av-decor">
+        <div class="decor-circle c1"></div>
+        <div class="decor-circle c2"></div>
+        <div class="decor-circle c3"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <div class="auth-form-panel">
+    <div class="auth-form-wrap">
+      <div class="auth-form-header">
+        <h1>Create Account</h1>
+        <p>Start your luxury shopping journey today</p>
+      </div>
+
+      <div class="auth-message" id="authMessage"></div>
+
+      <form class="auth-form" id="registerForm" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <div class="input-wrap">
+              <i class="fa fa-user"></i>
+              <input type="text" id="firstName" name="firstName" placeholder="John" required/>
+            </div>
+            <span class="field-error" id="firstNameError"></span>
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <div class="input-wrap">
+              <i class="fa fa-user"></i>
+              <input type="text" id="lastName" name="lastName" placeholder="Doe" required/>
+            </div>
+            <span class="field-error" id="lastNameError"></span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <div class="input-wrap">
+            <i class="fa fa-envelope"></i>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required/>
+          </div>
+          <span class="field-error" id="emailError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <div class="input-wrap">
+            <i class="fa fa-phone"></i>
+            <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210"/>
+          </div>
+          <span class="field-error" id="phoneError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="input-wrap">
+            <i class="fa fa-lock"></i>
+            <input type="password" id="password" name="password" placeholder="Min 8 characters" required/>
+            <button type="button" class="toggle-pass" id="togglePass"><i class="fa fa-eye"></i></button>
+          </div>
+          <span class="field-error" id="passwordError"></span>
+          <div class="password-strength" id="strengthBar">
+            <div class="strength-fill" id="strengthFill"></div>
+          </div>
+          <span class="strength-label" id="strengthLabel"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <div class="input-wrap">
+            <i class="fa fa-lock"></i>
+            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Repeat password" required/>
+            <button type="button" class="toggle-pass" id="toggleConfirm"><i class="fa fa-eye"></i></button>
+          </div>
+          <span class="field-error" id="confirmError"></span>
+        </div>
+
+        <div class="form-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="terms" required/>
+            <span class="checkmark"></span>
+            I agree to the <a href="#">Terms of Service</a> & <a href="#">Privacy Policy</a>
+          </label>
+          <span class="field-error" id="termsError"></span>
+        </div>
+
+        <div class="form-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="newsletter"/>
+            <span class="checkmark"></span>
+            Subscribe to newsletter for exclusive deals
+          </label>
+        </div>
+
+        <button type="submit" class="auth-submit" id="registerBtn">
+          <span class="btn-text">Create Account</span>
+          <i class="fa fa-arrow-right"></i>
+          <span class="btn-loader" id="btnLoader" style="display:none"><i class="fa fa-spinner fa-spin"></i></span>
+        </button>
+      </form>
+
+      <p class="auth-switch">
+        Already have an account? <a href="login.html">Sign in →</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+<script src="auth.js"></script>
+</body>
+</html>

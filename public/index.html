@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LUMINARY — Shop</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="nav-brand">
+    <span class="brand-icon">✦</span>
+    <span class="brand-name">LUMINARY</span>
+  </div>
+  <div class="nav-links">
+    <a href="#" class="nav-link active" data-filter="all">All</a>
+    <a href="#" class="nav-link" data-filter="electronics">Electronics</a>
+    <a href="#" class="nav-link" data-filter="fashion">Fashion</a>
+    <a href="#" class="nav-link" data-filter="home">Home</a>
+    <a href="#" class="nav-link" data-filter="beauty">Beauty</a>
+  </div>
+  <div class="nav-actions">
+    <div class="search-wrap">
+      <input type="text" id="searchInput" placeholder="Search products…" />
+      <i class="fa fa-search"></i>
+    </div>
+    <div class="cart-btn" id="cartToggle">
+      <i class="fa fa-bag-shopping"></i>
+      <span class="cart-badge" id="cartBadge">0</span>
+    </div>
+    <div class="user-menu" id="userMenu">
+      <div class="user-avatar" id="userAvatar">
+        <i class="fa fa-user"></i>
+      </div>
+      <div class="user-dropdown" id="userDropdown">
+        <div class="user-info" id="userInfo"></div>
+        <a href="login.html" id="loginLink"><i class="fa fa-sign-in-alt"></i> Login</a>
+        <a href="register.html" id="registerLink"><i class="fa fa-user-plus"></i> Register</a>
+        <a href="#" id="logoutLink" style="display:none"><i class="fa fa-sign-out-alt"></i> Logout</a>
+        <a href="#orders" id="ordersLink" style="display:none"><i class="fa fa-box"></i> My Orders</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO BANNER -->
+<section class="hero">
+  <div class="hero-content">
+    <p class="hero-label">NEW ARRIVALS — 2025</p>
+    <h1 class="hero-title">Curated for<br/><em>Discerning</em> Taste</h1>
+    <p class="hero-sub">Discover our collection of premium products, thoughtfully selected for the modern lifestyle.</p>
+    <button class="hero-cta" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">
+      Shop Now <i class="fa fa-arrow-right"></i>
+    </button>
+  </div>
+  <div class="hero-decor">
+    <div class="decor-circle c1"></div>
+    <div class="decor-circle c2"></div>
+    <div class="decor-circle c3"></div>
+  </div>
+</section>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- PRODUCTS SECTION -->
+<section class="products-section" id="products">
+  <div class="section-header">
+    <h2 class="section-title">Our Products</h2>
+    <div class="sort-wrap">
+      <select id="sortSelect">
+        <option value="default">Sort by</option>
+        <option value="price-asc">Price: Low to High</option>
+        <option value="price-desc">Price: High to Low</option>
+        <option value="rating">Top Rated</option>
+        <option value="name">Name A–Z</option>
+      </select>
+    </div>
+  </div>
+  <div class="products-grid" id="productsGrid">
+    <!-- Injected by JS -->
+  </div>
+  <div class="no-results" id="noResults" style="display:none">
+    <i class="fa fa-magnifying-glass"></i>
+    <p>No products found</p>
+  </div>
+</section>
+
+<!-- CART SIDEBAR -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header">
+    <h3>Your Cart <span id="cartItemCount">(0)</span></h3>
+    <button class="cart-close" id="cartClose"><i class="fa fa-times"></i></button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty" id="cartEmpty">
+      <i class="fa fa-shopping-bag"></i>
+      <p>Your cart is empty</p>
+    </div>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="cart-subtotal">
+      <span>Subtotal</span><span id="cartSubtotal">₹0</span>
+    </div>
+    <div class="cart-tax">
+      <span>Tax (18%)</span><span id="cartTax">₹0</span>
+    </div>
+    <div class="cart-total">
+      <span>Total</span><span id="cartTotal">₹0</span>
+    </div>
+    <button class="checkout-btn" id="checkoutBtn">
+      Proceed to Checkout <i class="fa fa-arrow-right"></i>
+    </button>
+    <button class="clear-cart-btn" id="clearCartBtn">Clear Cart</button>
+  </div>
+</aside>
+
+<!-- PRODUCT QUICK VIEW MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="product-modal" id="productModal">
+    <button class="modal-close" id="modalClose"><i class="fa fa-times"></i></button>
+    <div class="modal-content" id="modalContent"></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="brand-icon">✦</span>
+      <span class="brand-name">LUMINARY</span>
+      <p>Premium products for everyday luxury.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <a href="#">About Us</a>
+      <a href="#">Contact</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Returns</a>
+    </div>
+    <div class="footer-social">
+      <h4>Follow Us</h4>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-pinterest"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 LUMINARY. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
